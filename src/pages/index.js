@@ -9,7 +9,12 @@ const IndexPage = (props) => {
   console.log(props);
   return (
     <Layout>
-
+      {props.data.allBook.edges.map(edge => (
+        <div key={edge.node.id}>
+          <h2>{edge.node.title} - <h5>{edge.node.author.name}</h5></h2>
+          <div>{edge.node.summary}</div>
+        </div>
+      ))}
     </Layout>
   );
 }
