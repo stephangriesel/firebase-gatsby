@@ -1,5 +1,8 @@
+const path = require('path');
+
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
+    const bookTemplate = path.resolve('src/templates/bookTemplate.js');
 
     return graphql(`
     {
@@ -24,7 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allbook.edges.forEach(book => {
             createPage({
                 path: `/book/${book.node.id}`,
-                component: null,
+                component: bookTemplate,
                 context: book.node
             })
         });
