@@ -1,7 +1,32 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions;
 
-// You can delete this file if you're not using it
+    return graphql(`
+    {
+        allBook {
+          edges {
+            node {
+              summary
+              title
+              id
+              author {
+                name
+              }
+            }
+          }
+        }
+      }
+    `).then((result) => {
+        if (result.errors) {
+            throw result.errors;
+        }
+
+        result.data.allbook.edges.forEach(book => {
+            createPage({
+                path: `/book/${book.node.id}`,
+                component: null,
+                context: book.node
+            })
+        });
+    })
+}
