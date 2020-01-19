@@ -1,6 +1,7 @@
 import React from 'react';
 
-const BookTemplate = () => {
+const BookTemplate = (props) => {
+    console.log(props.pageContext.title)
     return (
         <div>
             Book test page
