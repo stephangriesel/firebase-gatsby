@@ -4,7 +4,7 @@ const BookTemplate = () => {
     return (
         <div>
             Book test page
-    </div>
+        </div>
     )
 };
 
