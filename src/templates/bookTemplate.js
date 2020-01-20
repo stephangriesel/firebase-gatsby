@@ -2,10 +2,17 @@ import React from 'react';
 import Layout from "../components/layout";
 
 const BookTemplate = (props) => {
-    console.log(props.pageContext.title)
+    console.log(props.pageContext)
     return (
         <Layout>
-            Book test page
+            <section>
+                <h2>
+                    {props.pageContext.title} - <small>{props.pageContext.author.name}</small>
+                </h2>
+                <p>
+                    {props.pageContext.summary}
+                </p>
+            </section>
         </Layout>
     )
 };
