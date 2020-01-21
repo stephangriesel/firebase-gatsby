@@ -1,6 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const BookItem = styled.section`
+const BookItemWrapper = styled.section`
 border: 1px solid green;
     h2{
         small{
@@ -8,5 +9,18 @@ border: 1px solid green;
         }
     }
 `;
+
+const BookItem = ({ authorName, bookTitle, bookSummary }) => {
+    return (
+        <BookItemWrapper>
+            <h2>
+                {bookTitle} - <small>{authorName}</small>
+            </h2>
+            <p>
+                {bookSummary}
+            </p>
+        </BookItemWrapper>
+    )
+}
 
 export default BookItem;
