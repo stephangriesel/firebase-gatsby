@@ -10,7 +10,7 @@ border: 1px solid green;
     }
 `;
 
-const BookItem = ({ authorName, bookTitle, bookSummary }) => {
+const BookItem = ({ authorName, bookTitle, bookSummary, children }) => {
     return (
         <BookItemWrapper>
             <h2>
@@ -19,6 +19,9 @@ const BookItem = ({ authorName, bookTitle, bookSummary }) => {
             <p>
                 {bookSummary}
             </p>
+            <div>
+                {children}
+            </div>
         </BookItemWrapper>
     )
 }
