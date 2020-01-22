@@ -2,18 +2,30 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import BookItem from "../components/BookItem";
+import styled from 'styled-components';
 
+const LinkButton = styled.div`
+  text-align:right;
+
+  a{
+    padding:8px;
+    background: #DDD;
+  }
+`
 
 const IndexPage = (props) => {
   console.log(props);
   return (
     <Layout>
       {props.data.allBook.edges.map(edge => (
-        <BookItem key={edge.node.id}>
-          <h2>{edge.node.title} - </h2>
-          <h5>{edge.node.author.name}</h5>
-          <div>{edge.node.summary}</div>
-          <Link to={`/book/${edge.node.id}`}>Discuss</Link>
+        <BookItem
+          bookTitle={edge.node.title}
+          bookSummary={edge.node.summary}
+          authorName={edge.node.author.name}
+          key={edge.node.id}>
+          <LinkButton>
+            <Link to={`/book/${edge.node.id}`}>Discuss</Link>
+          </LinkButton>
         </BookItem>
       ))}
     </Layout>
