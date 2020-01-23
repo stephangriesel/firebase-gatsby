@@ -8,8 +8,15 @@ const LinkButton = styled.div`
   text-align:right;
 
   a{
+    border-radius:10px;
+    color:#FFF;
     padding:8px;
-    background: #DDD;
+    text-decoration:none;
+    background:#272927;
+    :hover {
+      background:#000;
+      transition:2s ease-in-out;
+    }
   }
 `
 
