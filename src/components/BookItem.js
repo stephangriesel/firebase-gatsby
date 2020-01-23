@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BookItemWrapper = styled.section`
-border: 1px solid green;
+border: 1px solid #999;
+margin:1em;
+padding:1em;
     h2{
         small{
             font-weight:normal;
