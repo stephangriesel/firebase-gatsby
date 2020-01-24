@@ -12,9 +12,10 @@ padding:1em;
     }
 `;
 
-const BookItem = ({ authorName, bookTitle, bookSummary, children }) => {
+const BookItem = ({ authorName, bookTitle, bookSummary, bookCover, children }) => {
     return (
         <BookItemWrapper>
+            <img src={bookCover} alt="cover" />
             <h2>
                 {bookTitle} - <small>{authorName}</small>
             </h2>
